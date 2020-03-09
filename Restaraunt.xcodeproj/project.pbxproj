@@ -13,6 +13,10 @@
 		4A001B0F2415E83B00F71FA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A001B0D2415E83B00F71FA2 /* Main.storyboard */; };
 		4A001B112415E83C00F71FA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A001B102415E83C00F71FA2 /* Assets.xcassets */; };
 		4A001B142415E83C00F71FA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A001B122415E83C00F71FA2 /* LaunchScreen.storyboard */; };
+		4A001B1C2415EAC900F71FA2 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B1B2415EAC900F71FA2 /* CategoryTableViewController.swift */; };
+		4A001B1E2415EAD800F71FA2 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B1D2415EAD800F71FA2 /* MenuTableViewController.swift */; };
+		4A001B202415EAE300F71FA2 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B1F2415EAE300F71FA2 /* OrderTableViewController.swift */; };
+		4A001B222415EBEC00F71FA2 /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B212415EBEC00F71FA2 /* MenuItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		4A001B102415E83C00F71FA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A001B132415E83C00F71FA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A001B152415E83C00F71FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A001B1B2415EAC900F71FA2 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		4A001B1D2415EAD800F71FA2 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		4A001B1F2415EAE300F71FA2 /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
+		4A001B212415EBEC00F71FA2 /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,10 @@
 				4A001B092415E83B00F71FA2 /* SceneDelegate.swift */,
 				4A001B0B2415E83B00F71FA2 /* ViewController.swift */,
 				4A001B0D2415E83B00F71FA2 /* Main.storyboard */,
+				4A001B212415EBEC00F71FA2 /* MenuItemDetailViewController.swift */,
+				4A001B1B2415EAC900F71FA2 /* CategoryTableViewController.swift */,
+				4A001B1D2415EAD800F71FA2 /* MenuTableViewController.swift */,
+				4A001B1F2415EAE300F71FA2 /* OrderTableViewController.swift */,
 				4A001B102415E83C00F71FA2 /* Assets.xcassets */,
 				4A001B122415E83C00F71FA2 /* LaunchScreen.storyboard */,
 				4A001B152415E83C00F71FA2 /* Info.plist */,
@@ -140,7 +152,11 @@
 			files = (
 				4A001B0C2415E83B00F71FA2 /* ViewController.swift in Sources */,
 				4A001B082415E83B00F71FA2 /* AppDelegate.swift in Sources */,
+				4A001B1E2415EAD800F71FA2 /* MenuTableViewController.swift in Sources */,
+				4A001B222415EBEC00F71FA2 /* MenuItemDetailViewController.swift in Sources */,
 				4A001B0A2415E83B00F71FA2 /* SceneDelegate.swift in Sources */,
+				4A001B202415EAE300F71FA2 /* OrderTableViewController.swift in Sources */,
+				4A001B1C2415EAC900F71FA2 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
