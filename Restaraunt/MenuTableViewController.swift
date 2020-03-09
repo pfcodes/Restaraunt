@@ -34,6 +34,19 @@ class MenuTableViewController: UITableViewController {
     let menuItem = menuItems[indexPath.row]
     cell.textLabel?.text = menuItem.name
     cell.detailTextLabel?.text = String(format: "$%.2f", menuItem.price)
+    MenuController.shared.fetchImage(url: menuItem.imageURL) { (image) in
+      guard let image = image else { return }
+      DispatchQueue.main.async {
+        if let currentIndexPath = self.tableView.indexPath(for: cell) {
+          if currentIndexPath != indexPath {
+            return
+          }
+          
+          cell.imageView?.image = image
+          cell.setNeedsLayout()
+        }
+      }
+    }
   }
 
   // MARK: - Table view data source
@@ -50,6 +63,10 @@ class MenuTableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellIdentifier", for: indexPath)
     configure(cell, forItemAt: indexPath)
     return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
   }
 
   // MARK: - Navigation

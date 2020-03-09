@@ -38,6 +38,19 @@ class OrderTableViewController: UITableViewController {
     let menuItem = MenuController.shared.order.menuItems[indexPath.row]
     cell.textLabel?.text = menuItem.name
     cell.detailTextLabel?.text = String(format: "$%.2f", menuItem.price)
+    MenuController.shared.fetchImage(url: menuItem.imageURL) { (image) in
+      guard let image = image else { return }
+      DispatchQueue.main.async {
+        if let currentIndexPath = self.tableView.indexPath(for: cell) {
+          if currentIndexPath != indexPath {
+            return
+          }
+          
+          cell.imageView?.image = image
+          cell.setNeedsLayout()
+        }
+      }
+    }
   }
 
   // MARK: - Table view data source
@@ -61,6 +74,11 @@ class OrderTableViewController: UITableViewController {
     // Return false if you do not want the specified item to be editable.
     return true
   }
+
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
+  }
+
 
   // Override to support editing the table view.
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
