@@ -9,12 +9,14 @@
 import UIKit
 
 class MenuItemDetailViewController: UIViewController {
+  var menuItem: MenuItem!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = menuItem.name
 
-        // Do any additional setup after loading the view.
-    }
+    // Do any additional setup after loading the view.
+  }
     
 
     /*

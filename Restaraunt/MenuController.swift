@@ -34,7 +34,7 @@ class MenuController {
       url: initialMenuURL,
       resolvingAgainstBaseURL: true
     )!
-    components.queryItems = [URLQueryItem(name: "cateogry", value: categoryName)]
+    components.queryItems = [URLQueryItem(name: "category", value: categoryName)]
     let menuURL = components.url!
     
     let task = URLSession.shared.dataTask(with: menuURL) { (data, resonse, error) in
