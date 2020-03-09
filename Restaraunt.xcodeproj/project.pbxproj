@@ -17,6 +17,9 @@
 		4A001B1E2415EAD800F71FA2 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B1D2415EAD800F71FA2 /* MenuTableViewController.swift */; };
 		4A001B202415EAE300F71FA2 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B1F2415EAE300F71FA2 /* OrderTableViewController.swift */; };
 		4A001B222415EBEC00F71FA2 /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B212415EBEC00F71FA2 /* MenuItemDetailViewController.swift */; };
+		4A001B242415ECD500F71FA2 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B232415ECD500F71FA2 /* MenuItem.swift */; };
+		4A001B262415EE7F00F71FA2 /* IntermediaryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B252415EE7F00F71FA2 /* IntermediaryModels.swift */; };
+		4A001B282415EEF300F71FA2 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A001B272415EEF300F71FA2 /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		4A001B1D2415EAD800F71FA2 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4A001B1F2415EAE300F71FA2 /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		4A001B212415EBEC00F71FA2 /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
+		4A001B232415ECD500F71FA2 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		4A001B252415EE7F00F71FA2 /* IntermediaryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediaryModels.swift; sourceTree = "<group>"; };
+		4A001B272415EEF300F71FA2 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 				4A001B092415E83B00F71FA2 /* SceneDelegate.swift */,
 				4A001B0B2415E83B00F71FA2 /* ViewController.swift */,
 				4A001B0D2415E83B00F71FA2 /* Main.storyboard */,
+				4A001B232415ECD500F71FA2 /* MenuItem.swift */,
+				4A001B252415EE7F00F71FA2 /* IntermediaryModels.swift */,
+				4A001B272415EEF300F71FA2 /* Order.swift */,
 				4A001B212415EBEC00F71FA2 /* MenuItemDetailViewController.swift */,
 				4A001B1B2415EAC900F71FA2 /* CategoryTableViewController.swift */,
 				4A001B1D2415EAD800F71FA2 /* MenuTableViewController.swift */,
@@ -152,9 +161,12 @@
 			files = (
 				4A001B0C2415E83B00F71FA2 /* ViewController.swift in Sources */,
 				4A001B082415E83B00F71FA2 /* AppDelegate.swift in Sources */,
+				4A001B282415EEF300F71FA2 /* Order.swift in Sources */,
 				4A001B1E2415EAD800F71FA2 /* MenuTableViewController.swift in Sources */,
 				4A001B222415EBEC00F71FA2 /* MenuItemDetailViewController.swift in Sources */,
 				4A001B0A2415E83B00F71FA2 /* SceneDelegate.swift in Sources */,
+				4A001B262415EE7F00F71FA2 /* IntermediaryModels.swift in Sources */,
+				4A001B242415ECD500F71FA2 /* MenuItem.swift in Sources */,
 				4A001B202415EAE300F71FA2 /* OrderTableViewController.swift in Sources */,
 				4A001B1C2415EAC900F71FA2 /* CategoryTableViewController.swift in Sources */,
 			);

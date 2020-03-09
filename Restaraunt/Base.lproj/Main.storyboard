@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Restaurant-->
         <scene sceneID="nuC-yD-xHy">
             <objects>
                 <tableViewController id="etA-Yb-ldG" customClass="CategoryTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,13 +33,13 @@
                             <outlet property="delegate" destination="etA-Yb-ldG" id="RWy-zT-5yQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="glz-Xb-BuP"/>
+                    <navigationItem key="navigationItem" title="Restaurant" id="glz-Xb-BuP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wch-lE-mHQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="855.07246376811599" y="242.41071428571428"/>
         </scene>
-        <!--Menu Table View Controller-->
+        <!--Items-->
         <scene sceneID="CeQ-u5-pxg">
             <objects>
                 <tableViewController id="eJK-eR-14x" customClass="MenuTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,13 +65,13 @@
                             <outlet property="delegate" destination="eJK-eR-14x" id="F5s-sS-fS7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ztc-3y-4Xf"/>
+                    <navigationItem key="navigationItem" title="Items" largeTitleDisplayMode="never" id="ztc-3y-4Xf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beF-r3-6Pf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1677" y="242"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Your Order-->
         <scene sceneID="UT5-1H-hzU">
             <objects>
                 <tableViewController id="NXq-m5-1MH" customClass="OrderTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +94,7 @@
                             <outlet property="delegate" destination="NXq-m5-1MH" id="tFr-5G-hip"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="6HK-f5-NSY"/>
+                    <navigationItem key="navigationItem" title="Your Order" id="6HK-f5-NSY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kX-gR-SkM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,7 +162,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zGU-YB-UQp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8V0-5P-crg"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="8V0-5P-crg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDa-ri-fpK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
