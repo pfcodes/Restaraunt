@@ -105,11 +105,17 @@ class OrderTableViewController: UITableViewController {
     
     let formattedOrder = String(format: "$%.2f", orderTotal)
     
-    let alert = UIAlertController(title: "Confirm Order", message: "You are about to submit your order with a total of $\(orderTotal)", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Confirm Order", message: "You are about to submit your order with a total of \(formattedOrder)", preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "Submit", style: .default) { action in
       self.uploadOrder()
     })
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     present(alert, animated: true, completion: nil)
+  }
+  
+  @IBAction func unwindToOrderList(segue: UIStoryboardSegue) {
+    if segue.identifier == "DismissConfirmation" {
+      MenuController.shared.order.menuItems.removeAll()
+    }
   }
 }

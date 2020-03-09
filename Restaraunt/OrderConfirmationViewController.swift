@@ -14,7 +14,7 @@ class OrderConfirmationViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.timeRemainingLabel?.text = "Thank you for your order! Your wait time is approximately \(minutes)."
+    self.timeRemainingLabel?.text = "Thank you for your order! Your wait time is approximately \(minutes!) minutes."
   }
 
   /*
@@ -25,11 +25,5 @@ class OrderConfirmationViewController: UIViewController {
       // Get the new view controller using segue.destination.
       // Pass the selected object to the new view controller.
   }
-  */
-  
-  @IBAction func unwindToOrderList(segue: UIStoryboardSegue) {
-    
-  }
-
-  
+  */  
 }

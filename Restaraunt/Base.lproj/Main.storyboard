@@ -161,7 +161,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ghS-8s-qwv">
                                 <rect key="frame" x="8" y="394" width="398" height="54.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy5-eI-ivF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy5-eI-ivF">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -171,7 +171,7 @@
                                         <rect key="frame" x="0.0" y="24.5" width="398" height="30"/>
                                         <state key="normal" title="Dismiss"/>
                                         <connections>
-                                            <segue destination="Slc-eF-2Vf" kind="unwind" identifier="DismissConfirmation" unwindAction="unwindToOrderListWithSegue:" id="ESs-RE-Ecs"/>
+                                            <segue destination="Slc-eF-2Vf" kind="unwind" identifier="DismissConfirmation" unwindAction="unwindToOrderListWithSegue:" id="x7i-7G-KfF"/>
                                         </connections>
                                     </button>
                                 </subviews>
