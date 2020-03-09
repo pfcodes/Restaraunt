@@ -30,16 +30,12 @@ class MenuItemDetailViewController: UIViewController {
     priceLabel.text = String(format: "$%.2f", menuItem.price)
     detailTextLabel.text = menuItem.detailText
   }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  @IBAction func addtoOrderButtonTapped(_ sender: UIButton) {
+    UIView.animate(withDuration: 0.3) {
+      self.addToOrderButton.transform = CGAffineTransform(scaleX: 3, y: 3)
+      self.addToOrderButton.transform = CGAffineTransform(scaleX: 1, y: 1)
     }
-    */
-
+  }
+  
 }
