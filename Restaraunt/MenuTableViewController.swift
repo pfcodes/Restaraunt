@@ -10,14 +10,13 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
   var category: String!
-  let menuController = MenuController()
   var menuItems = [MenuItem]()
 
 
   override func viewDidLoad() {
     super.viewDidLoad()
     title = category.capitalized
-    menuController.fetchMenuItems(forCategory: category) { (menuItems) in
+    MenuController.shared.fetchMenuItems(forCategory: category) { (menuItems) in
       if let menuItems = menuItems {
         self.updateUI(with: menuItems)
       }
