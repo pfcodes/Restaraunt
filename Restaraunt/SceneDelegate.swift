@@ -15,7 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var orderTabBarItem: UITabBarItem!
   
   @objc func updateOrderBadge() {
-    orderTabBarItem.badgeValue = String(MenuController.shared.order.menuItems.count)
+    switch MenuController.shared.order.menuItems.count {
+    case 0:
+      orderTabBarItem.badgeValue = nil
+    case let count:
+      orderTabBarItem.badgeValue = String(count)
+    }
   }
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
