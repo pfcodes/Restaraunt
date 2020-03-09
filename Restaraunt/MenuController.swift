@@ -60,10 +60,10 @@ class MenuController {
   }
   
   func submitOrder(
-    forMenuIDs menuIDs: [Int],
+    forMenuIDs menuIds: [Int],
     completion: @escaping (Int?) -> Void
   ) {
-    let data: [String: [Int]] = ["menuIDs": menuIDs]
+    let data: [String: [Int]] = ["menuIds": menuIds]
     let jsonEncoder = JSONEncoder()
     let jsonData = try? jsonEncoder.encode(data)
 
