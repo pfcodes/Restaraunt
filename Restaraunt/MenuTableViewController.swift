@@ -16,10 +16,16 @@ class MenuTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = category.capitalized
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(updateUI),
+      name: MenuController.menuDataUpdatedNotification,
+      object: nil
+    )
     updateUI()
   }
   
-  func updateUI() {
+  @objc func updateUI() {
     menuItems = MenuController.shared.items(forCategory: category) ?? []
     tableView.reloadData()
   }
@@ -74,5 +80,10 @@ class MenuTableViewController: UITableViewController {
   override func encodeRestorableState(with coder: NSCoder) {
     super.encodeRestorableState(with: coder)
     coder.encode(category, forKey: "category")
+  }
+  override func decodeRestorableState(with coder: NSCoder) {
+    super.decodeRestorableState(with: coder)
+    category = coder.decodeObject(forKey: "category") as? String
+    updateUI()
   }
 }

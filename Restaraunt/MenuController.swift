@@ -11,6 +11,8 @@ import UIKit
 
 class MenuController {
   static let shared = MenuController()
+  static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
+  static let menuDataUpdatedNotification = Notification.Name("MenuController.menuDataUpdated")
 
   let baseURL = URL(string: "http://localhost:8090/")!
   let documentsDirectory = FileManager.default.urls(
@@ -48,10 +50,14 @@ class MenuController {
       itemsByID[item.id] = item
       itemsByCategory[item.category, default: []].append(item)
     }
+    
+    DispatchQueue.main.async {
+      NotificationCenter.default.post(
+        name: MenuController.menuDataUpdatedNotification,
+        object: nil
+      )
+    }
   }
-
-  static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
-  static let menuDataUpdatedNotification = Notification.Name("MenuController.menuDataUpdated")
 }
 
 // MARK: Networking methods

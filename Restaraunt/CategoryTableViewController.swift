@@ -13,10 +13,18 @@ class CategoryTableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(updateUI),
+      name: MenuController.menuDataUpdatedNotification,
+      object: nil
+    )
+    
     updateUI()
   }
   
-  func updateUI() {
+  @objc func updateUI() {
     categories = MenuController.shared.categories
     tableView.reloadData()
   }

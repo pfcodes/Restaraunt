@@ -49,4 +49,10 @@ class MenuItemDetailViewController: UIViewController {
     super.encodeRestorableState(with: coder)
     coder.encode(menuItem.id, forKey: "menuItemId")
   }
+  override func decodeRestorableState(with coder: NSCoder) {
+    super.decodeRestorableState(with: coder)
+    let menuItemId = Int(coder.decodeInt32(forKey: "menuItemId"))
+    menuItem = MenuController.shared.item(withID: menuItemId)
+    updateUI()
+  }
 }
