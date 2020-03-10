@@ -44,4 +44,9 @@ class MenuItemDetailViewController: UIViewController {
     MenuController.shared.order.menuItems.append(menuItem)
   }
   
+  // MARK: - State preservation
+  override func encodeRestorableState(with coder: NSCoder) {
+    super.encodeRestorableState(with: coder)
+    coder.encode(menuItem.id, forKey: "menuItemId")
+  }
 }

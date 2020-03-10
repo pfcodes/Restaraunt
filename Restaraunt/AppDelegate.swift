@@ -23,6 +23,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     return true
   }
+  
+  func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+
+    MenuController.shared.loadOrder()
+    MenuController.shared.loadItems()
+    
+    MenuController.shared.loadRemoteData()
+
+    return true
+  }
+  
+  func application(_ application: UIApplication, shouldRestoreSecureApplicationState coder: NSCoder) -> Bool {
+    true
+  }
+  
+  func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
+    return true
+  }
 
   // MARK: UISceneSession Lifecycle
 

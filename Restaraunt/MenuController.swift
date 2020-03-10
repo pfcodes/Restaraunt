@@ -11,52 +11,62 @@ import UIKit
 
 class MenuController {
   static let shared = MenuController()
-  
-  var order = Order() {
-    didSet {
-      NotificationCenter.default.post(name: MenuController.orderUpdatedNotification, object: nil)
-    }
-  }
-  static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
 
   let baseURL = URL(string: "http://localhost:8090/")!
-  
-  func fetchCategories(completion: @escaping ([String]?) -> Void) {
-    let categoryURL = baseURL.appendingPathComponent("categories")
-    let task = URLSession.shared.dataTask(with: categoryURL) { (data, response, error) in
-      if let data = data {
-        let jsonDictionary = try? JSONSerialization.jsonObject(with: data) as? [String:Any]
-        let categories = jsonDictionary?["categories"] as? [String]
-        completion(categories)
-      } else {
-        completion(nil)
-      }
-    }
-    task.resume()
+  let documentsDirectory = FileManager.default.urls(
+    for: .documentDirectory,
+    in: .userDomainMask
+  )[0]
+
+  var categories: [String] {
+    get { itemsByCategory.keys.sorted() }
   }
   
-  func fetchMenuItems(
-    forCategory categoryName: String,
-    completion: @escaping ([MenuItem]?) -> Void
-  ) {
-    let initialMenuURL = baseURL.appendingPathComponent("menu")
-    var components = URLComponents(
-      url: initialMenuURL,
-      resolvingAgainstBaseURL: true
-    )!
-    components.queryItems = [URLQueryItem(name: "category", value: categoryName)]
-    let menuURL = components.url!
+  var order = Order(menuItems: []) {
+    didSet {
+      NotificationCenter.default.post(
+        name: MenuController.orderUpdatedNotification,
+        object: nil
+      )
+    }
+  }
+
+  
+  private var itemsByID = [Int:MenuItem]()
+  private var itemsByCategory = [String:[MenuItem]]()
+  func item(withID itemID: Int) -> MenuItem? {
+    return itemsByID[itemID]
+  }
+  func items(forCategory category: String) -> [MenuItem]? {
+    return itemsByCategory[category]
+  }
+  private func process(_ items: [MenuItem]) {
+    itemsByID.removeAll()
+    itemsByCategory.removeAll()
     
-    let task = URLSession.shared.dataTask(with: menuURL) { (data, resonse, error) in
+    for item in items {
+      itemsByID[item.id] = item
+      itemsByCategory[item.category, default: []].append(item)
+    }
+  }
+
+  static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
+  static let menuDataUpdatedNotification = Notification.Name("MenuController.menuDataUpdated")
+}
+
+// MARK: Networking methods
+extension MenuController {
+  func loadRemoteData() {
+    let initialMenuURL = baseURL.appendingPathComponent("menu")
+    let components = URLComponents(url: initialMenuURL, resolvingAgainstBaseURL: true)!
+    let menuURL = components.url!
+    let task = URLSession.shared.dataTask(with: menuURL) { (data, _, _) in
       let jsonDecoder = JSONDecoder()
       if let data = data,
         let menuItems = try? jsonDecoder.decode(MenuItems.self, from: data) {
-          completion(menuItems.items)
-      } else {
-        completion(nil)
+        self.process(menuItems.items)
       }
     }
-    
     task.resume()
   }
   
@@ -69,7 +79,6 @@ class MenuController {
         completion(nil)
       }
     }
-
     task.resume()
   }
   
@@ -80,14 +89,13 @@ class MenuController {
     let data: [String: [Int]] = ["menuIds": menuIds]
     let jsonEncoder = JSONEncoder()
     let jsonData = try? jsonEncoder.encode(data)
-
+    
     let orderURL = baseURL.appendingPathComponent("order")
     var request = URLRequest(url: orderURL)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpBody = jsonData
-
-
+    
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
       let jsonDecoder = JSONDecoder()
       if let data = data,
@@ -97,8 +105,50 @@ class MenuController {
         completion(nil)
       }
     }
-    
     task.resume()
   }
 }
 
+// MARK: Persistence methods
+extension MenuController {
+  func loadOrder() {
+    let orderFileURL = documentsDirectory
+      .appendingPathComponent("order")
+      .appendingPathExtension("json")
+    
+    guard let data = try? Data(contentsOf: orderFileURL) else { return }
+    
+    order = (try? JSONDecoder().decode(Order.self, from: data)) ?? Order(menuItems: [])
+  }
+  
+  func saveOrder() {
+    let orderFileURL = documentsDirectory
+      .appendingPathComponent("order")
+      .appendingPathExtension("json")
+    
+    if let data = try? JSONEncoder().encode(order) {
+      try? data.write(to: orderFileURL)
+    }
+  }
+  
+  func loadItems() {
+    let menuItemsFileURL = documentsDirectory
+      .appendingPathComponent("menuItems")
+      .appendingPathExtension("json")
+    
+    guard let data = try? Data(contentsOf: menuItemsFileURL) else { return }
+    let items = (try? JSONDecoder().decode([MenuItem].self, from: data)) ?? []
+    process(items)
+  }
+  
+  func saveItems() {
+    let menuItemsFileURL = documentsDirectory
+      .appendingPathComponent("menuItems")
+      .appendingPathExtension("json")
+    
+    let items = Array(itemsByID.values)
+    if let data = try? JSONEncoder().encode(items) {
+      try? data.write(to: menuItemsFileURL)
+    }
+  }
+}

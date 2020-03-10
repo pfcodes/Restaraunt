@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Order {
+struct Order: Codable {
   var menuItems: [MenuItem]
   
   init(menuItems: [MenuItem] = []) {

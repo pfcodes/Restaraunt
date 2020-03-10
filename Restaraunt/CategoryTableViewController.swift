@@ -13,19 +13,12 @@ class CategoryTableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    MenuController.shared.fetchCategories { (categories) in
-      if let categories = categories {
-        self.categories = categories
-        self.updateUI(with: categories)
-      }
-    }
+    updateUI()
   }
   
-  func updateUI(with categories: [String]) {
-    DispatchQueue.main.async {
-      self.categories = categories
-      self.tableView.reloadData()
-    }
+  func updateUI() {
+    categories = MenuController.shared.categories
+    tableView.reloadData()
   }
   
   func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {

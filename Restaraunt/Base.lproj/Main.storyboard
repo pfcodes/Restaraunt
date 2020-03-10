@@ -10,7 +10,7 @@
         <!--Restaurant-->
         <scene sceneID="nuC-yD-xHy">
             <objects>
-                <tableViewController id="etA-Yb-ldG" customClass="CategoryTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CategoryTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="etA-Yb-ldG" customClass="CategoryTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VQL-9g-IiF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
         <!--Items-->
         <scene sceneID="CeQ-u5-pxg">
             <objects>
-                <tableViewController id="eJK-eR-14x" customClass="MenuTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eJK-eR-14x" customClass="MenuTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iJF-Xr-U0I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,7 +103,7 @@
         <!--Your Order-->
         <scene sceneID="UT5-1H-hzU">
             <objects>
-                <tableViewController id="NXq-m5-1MH" customClass="OrderTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OrderTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NXq-m5-1MH" customClass="OrderTableViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mn7-e0-S8Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,7 +208,7 @@
         <!--Your Order-->
         <scene sceneID="Npg-EL-kaF">
             <objects>
-                <navigationController id="BbH-o6-LXu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Order Nav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BbH-o6-LXu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Your Order" image="bag" catalog="system" id="puS-bR-gwh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="apl-w2-eJn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -225,7 +225,7 @@
         <!--Menu-->
         <scene sceneID="kDk-PE-CKt">
             <objects>
-                <navigationController id="cAq-9S-H8J" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Menu Nav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cAq-9S-H8J" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Menu" image="doc.plaintext" catalog="system" id="tDw-fw-qqd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="aSw-CF-IhH">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -244,7 +244,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="egX-Bb-CLW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yos-5k-jtV">
+                    <tabBar key="tabBar" contentMode="scaleToFill" restorationIdentifier="Root" insetsLayoutMarginsFromSafeArea="NO" id="yos-5k-jtV">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -261,7 +261,7 @@
         <!--Menu Item Detail View Controller-->
         <scene sceneID="g8F-Em-He7">
             <objects>
-                <viewController id="EXf-Df-Y5Q" customClass="MenuItemDetailViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuItemDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EXf-Df-Y5Q" customClass="MenuItemDetailViewController" customModule="Restaraunt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="60X-wW-Qie">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

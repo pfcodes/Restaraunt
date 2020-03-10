@@ -16,18 +16,12 @@ class MenuTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = category.capitalized
-    MenuController.shared.fetchMenuItems(forCategory: category) { (menuItems) in
-      if let menuItems = menuItems {
-        self.updateUI(with: menuItems)
-      }
-    }
+    updateUI()
   }
   
-  func updateUI(with menuItems: [MenuItem]) {
-    DispatchQueue.main.async {
-      self.menuItems = menuItems
-      self.tableView.reloadData()
-    }
+  func updateUI() {
+    menuItems = MenuController.shared.items(forCategory: category) ?? []
+    tableView.reloadData()
   }
   
   func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
@@ -74,5 +68,11 @@ class MenuTableViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let menuItemDetailVC = segue.destination as! MenuItemDetailViewController
     menuItemDetailVC.menuItem = menuItems[tableView.indexPathForSelectedRow!.row]
+  }
+
+  // MARK: - State preservation
+  override func encodeRestorableState(with coder: NSCoder) {
+    super.encodeRestorableState(with: coder)
+    coder.encode(category, forKey: "category")
   }
 }
