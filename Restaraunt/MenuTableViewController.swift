@@ -9,13 +9,13 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
-  var category: String!
+  var category: String?
   var menuItems = [MenuItem]()
 
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = category.capitalized
+
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(updateUI),
@@ -26,6 +26,8 @@ class MenuTableViewController: UITableViewController {
   }
   
   @objc func updateUI() {
+    guard let category = category else { return }
+    title = category.capitalized
     menuItems = MenuController.shared.items(forCategory: category) ?? []
     tableView.reloadData()
   }
@@ -79,6 +81,7 @@ class MenuTableViewController: UITableViewController {
   // MARK: - State preservation
   override func encodeRestorableState(with coder: NSCoder) {
     super.encodeRestorableState(with: coder)
+    guard let category = category else { return }
     coder.encode(category, forKey: "category")
   }
   override func decodeRestorableState(with coder: NSCoder) {
